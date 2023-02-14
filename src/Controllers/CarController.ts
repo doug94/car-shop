@@ -17,4 +17,15 @@ export default class CarController {
     const registeredCar = await this.service.insertCar(incomingCar);
     return res.status(201).json(registeredCar);
   };
+
+  public retrieveAllCars = async (_req: Request, res: Response) => {
+    const cars = await this.service.getAllCars();
+    return res.status(200).json(cars);
+  };
+
+  public retrieveCarById = async (req: Request, res: Response) => {
+    const car = await this.service.getCarById(req.params.id);
+    if (car) return res.status(200).json(car);
+    return res.status(404).json({ message: 'Car not found' });
+  };
 }
