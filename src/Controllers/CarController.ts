@@ -28,4 +28,14 @@ export default class CarController {
     if (car) return res.status(200).json(car);
     return res.status(404).json({ message: 'Car not found' });
   };
+
+  public editCar = async (req: Request, res: Response) => {
+    const { model, year, color, status, buyValue, doorsQty, seatsQty } = req.body;
+    const incomingCar: ICar = {
+      model, year, color, status, buyValue, doorsQty, seatsQty,
+    };
+    const updatedCar = await this.service.updateCar(req.params.id, incomingCar);
+    if (updatedCar) return res.status(200).json(updatedCar);
+    return res.status(404).json({ message: 'Car not found' });
+  };
 }

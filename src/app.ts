@@ -14,4 +14,6 @@ app.get('/cars', carController.retrieveAllCars);
 
 app.get('/cars/:id', validateId, carController.retrieveCarById);
 
+app.put('/cars/:id', validateId, carController.editCar);
+
 export default app;
