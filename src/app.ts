@@ -24,4 +24,6 @@ app.get('/motorcycles', bikeController.retrieveAllMotorcycles);
 
 app.get('/motorcycles/:id', validateId, bikeController.retrieveMotorcycleById);
 
+app.put('/motorcycles/:id', validateId, bikeController.editMotorcycle);
+
 export default app;

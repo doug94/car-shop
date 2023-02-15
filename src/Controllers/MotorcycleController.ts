@@ -28,4 +28,14 @@ export default class MotorcycleController {
     if (bike) return res.status(200).json(bike);
     return res.status(404).json({ message: 'Motorcycle not found' });
   };
+
+  public editMotorcycle = async (req: Request, res: Response) => {
+    const { model, year, color, status, buyValue, category, engineCapacity } = req.body;
+    const incomingBike: IMotorcycle = {
+      model, year, color, status, buyValue, category, engineCapacity,
+    };
+    const updatedBike = await this.service.updateMotorcycle(req.params.id, incomingBike);
+    if (updatedBike) return res.status(200).json(updatedBike);
+    return res.status(404).json({ message: 'Motorcycle not found' });
+  };
 }
