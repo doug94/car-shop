@@ -20,4 +20,8 @@ app.put('/cars/:id', validateId, carController.editCar);
 
 app.post('/motorcycles', bikeController.registerMotorcycle);
 
+app.get('/motorcycles', bikeController.retrieveAllMotorcycles);
+
+app.get('/motorcycles/:id', validateId, bikeController.retrieveMotorcycleById);
+
 export default app;

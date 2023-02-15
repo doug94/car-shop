@@ -17,4 +17,15 @@ export default class MotorcycleController {
     const registeredBike = await this.service.insertMotorcycle(incomingBike);
     return res.status(201).json(registeredBike);
   };
+
+  public retrieveAllMotorcycles = async (_req: Request, res: Response) => {
+    const bikes = await this.service.getAllBikes();
+    return res.status(200).json(bikes);
+  };
+
+  public retrieveMotorcycleById = async (req: Request, res: Response) => {
+    const bike = await this.service.getBikeById(req.params.id);
+    if (bike) return res.status(200).json(bike);
+    return res.status(404).json({ message: 'Motorcycle not found' });
+  };
 }
