@@ -42,3 +42,14 @@ export const carsMockWithId: ICar[] = [
     seatsQty: 5,
   },
 ];
+
+export const updatedCarMock: ICar = {
+  id: '634852326b35b59438fbea2f',
+  model: 'Marea',
+  year: 2002,
+  color: 'Black',
+  status: true,
+  buyValue: 18.990,
+  doorsQty: 4,
+  seatsQty: 5,
+};
